@@ -16,7 +16,7 @@ startButton.addEventListener("click", () => {
     if (paused) {
         paused = false;
         startTime = Date.now() - elapsedTime;
-        intervalId = setInterval(updateTime, 1000);
+        intervalId = setInterval(updateTime, 1);
     }
 });
 pauseButton.addEventListener("click", () => {
@@ -35,21 +35,24 @@ resetButton.addEventListener("click", () => {
     hours = 0;
     minutes = 0;
     seconds = 0;
-    timeDisplay.textContent = "00:00:00";
+    centisecs = 0;
+    timeDisplay.textContent = "00:00:00.00";
 });
 
 function updateTime() {
     elapsedTime = Date.now() - startTime;
 
+    centisecs = Math.floor((elapsedTime / 10) % 60);
     seconds = Math.floor((elapsedTime / 1000) % 60);
     minutes = Math.floor((elapsedTime / (1000 * 60)) % 60);
     hours = Math.floor((elapsedTime / (1000 * 60 * 60)) % 60);
 
+    centisecs = pad(centisecs);
     seconds = pad(seconds);
     minutes = pad(minutes);
     hours = pad(hours);
 
-    timeDisplay.textContent = `${hours}:${minutes}:${seconds}`;
+    timeDisplay.textContent = `${hours}:${minutes}:${seconds}.${centisecs}`;
 
     function pad(unit) {
         return (("0") + unit).length > 2 ? unit : "0" + unit;
