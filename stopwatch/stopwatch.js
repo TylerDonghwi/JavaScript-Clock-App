@@ -1,6 +1,5 @@
 const timeDisplay = document.querySelector("#timeDisplay");
-const startButton = document.querySelector("#startButton");
-const pauseButton = document.querySelector("#pauseButton");
+const spButton = document.querySelector("#spButton");
 const resetButton = document.querySelector("#resetButton");
 
 let startTime = 0;
@@ -12,18 +11,17 @@ let hours = 0;
 let minutes = 0;
 let seconds = 0;
 
-startButton.addEventListener("click", () => {
+spButton.addEventListener("click", () => {
     if (paused) {
         paused = false;
         startTime = Date.now() - elapsedTime;
         intervalId = setInterval(updateTime, 1);
-    }
-});
-pauseButton.addEventListener("click", () => {
-    if (!paused) {
+        spButton.innerHTML = "Stop"
+    } else if (!paused) {
         paused = true;
         elapsedTime = Date.now() - startTime;
         clearInterval(intervalId);
+        spButton.innerHTML = "Start"
     }
 });
 resetButton.addEventListener("click", () => {

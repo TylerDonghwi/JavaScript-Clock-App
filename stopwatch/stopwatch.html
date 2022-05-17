@@ -6,12 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Stopwatch</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
     <header>
-        <h1>Clock App</h1>
+        <a href="/index.html">
+            <h1 class="Main">Clock App</h1>
+        </a>
         <hr>
         <div id="options">
             <p><a href="stopwatch.html">stopwatch</a></p>
@@ -21,16 +23,13 @@
         <hr>
     </header>
 
-    <body>
-        <h2>Stopwatch</h2>
-        <div id="timeContainer">
-            <div id="timeDisplay">00:00:00.00</div>
-            <button id="startButton" class="timerButton">Start</button>
-            <button id="pauseButton" class="timerButton">Pause</button>
-            <button id="resetButton" class="timerButton">Reset</button>
-        </div>
-        <script src="stopwatch.js"></script>
-    </body>
+    <h2>Stopwatch</h2>
+    <div id="timeContainer">
+        <div id="timeDisplay">00:00:00.00</div>
+        <button id="spButton" class="timerButton">Start</button>
+        <button id="resetButton" class="timerButton">Reset</button>
+    </div>
+    <script src="stopwatch.js"></script>
 
 </body>
 
